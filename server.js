@@ -7,6 +7,10 @@ server.get('/', function(req,res){
  res.sendfile(__dirname + '/index.html');
 }); 
 
+server.get('/ex1', function(req,res){
+ res.sendfile(__dirname + '/ex1.html');
+}); 
+
 var port = 10001;
 server.listen(port, function(){
     console.log('server listining on port ' + port);
