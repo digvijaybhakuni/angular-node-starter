@@ -4,13 +4,18 @@
     <meta charset="utf-8">
 </head>
 
-<body ng-controller="DateCtrl">
-Today's date:
-{{ now | date:'dd. MMMM yyyy' }}<br> And the time is:
-{{ now | date:'HH:mm:ss' }}
+<body ng-controller="DateCtrl" ng-init="texting = 'Hello World!'">
 <!--
 You can see that all instances of the date filter—like all other formatting filters—are embedded in expressions. The syntax is similar to the pipe syntax in various Unix shells. You basically use the pipe character (“|”) to tell AngularJS that an expression needs to be processed by a filter before being evaluated and its result displayed. The filter comes right after the pipe. Just as it is common in all common Unix shells, multiple filters can be connected in series and processing is done from left to right.
 -->
+Today's date:
+{{ now | date:'dd. MMMM yyyy'}}<br> And the time is:
+{{ now | date:'HH:mm:ss' }} <br>
+{{ 'You can see that all instances of the date filter—like all other formatting filters—are embedded in expressions. The syntax is similar to the pipe syntax in various Unix shells. You basically use the pipe character' | truncate:80 }}
+<br>
+<textarea ng-model="texting" ></textarea>
+<p>{{texting | truncate:80 | uppercase}}</p>
+<spam>{{ 'lower case text' | lowercase }}</spam>
 <script src="bower_components/angular/angular.js"></script>
 <script src="scripts/date-app.js"></script>
 

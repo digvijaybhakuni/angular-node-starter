@@ -1,15 +1,19 @@
 var express = require('express');
 var server = express();
 server.use('/bower_components',express.static(__dirname+'/bower_components'));
+server.use('/scripts',express.static(__dirname+'/scripts'));
+server.use('/template',express.static(__dirname+'/template'));
 //server.use(express.static(__dirname+'/'));
+
 
 server.get('/', function(req,res){
  res.sendfile(__dirname + '/index.html');
 }); 
 
-server.get('/ex1', function(req,res){
- res.sendfile(__dirname + '/ex1.html');
-}); 
+
+server.get('/ex', function(req,res){
+ res.sendfile(__dirname + '/ex'+req.query.id+'.html');
+});
 
 var port = 10001;
 server.listen(port, function(){
