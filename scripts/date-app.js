@@ -3,7 +3,7 @@ var dateApp = angular.module ("dateApp", []);
 
 dateApp.controller ("DateCtrl", function ($scope, $timeout) {
   $scope.now = 'Loading...';
-
+  $scope.valOfTime = '100';
   $timeout(function(){ $scope.now += '/2'; },500);
   var updateTime = function() {
     $timeout(function() {

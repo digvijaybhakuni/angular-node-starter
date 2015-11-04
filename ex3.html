@@ -16,6 +16,7 @@ Today's date:
 <textarea ng-model="texting" ></textarea>
 <p>{{texting | truncate:80 | uppercase}}</p>
 <spam>{{ 'lower case text' | lowercase }}</spam>
+<div>{{ valOfTime | currency }}</div>
 <script src="bower_components/angular/angular.js"></script>
 <script src="scripts/date-app.js"></script>
 
