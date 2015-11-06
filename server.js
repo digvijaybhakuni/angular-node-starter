@@ -4,6 +4,7 @@ server.use('/bower_components',express.static(__dirname+'/bower_components'));
 server.use('/scripts',express.static(__dirname+'/scripts'));
 server.use('/template',express.static(__dirname+'/template'));
 server.use('/css',express.static(__dirname+'/css'));
+server.use('/ca-ng/static',express.static(__dirname+'/ca-ng/static'));
 //server.use(express.static(__dirname+'/'));
 
 
@@ -18,6 +19,10 @@ server.get('/ex', function(req,res){
 
 server.get('/s', function(req,res){
  res.sendfile(__dirname +'/'+req.query.n+'.html');
+});
+
+server.get('/ca-ng/l', function(req,res){
+ res.sendfile(__dirname +'/ca-ng/leason-'+req.query.n+'.html');
 });
 
 var port = 10001;
