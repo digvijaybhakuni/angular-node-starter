@@ -55,12 +55,8 @@
     promise.then(gotMovies, gotError);
 
     $scope.findId = function (){
-    	$http.get("http://localhost:8080/rs-jersey-spring/api/movie/"+$scope.inVal).then(function(res){
-
-    		$scope.movies = [];
-    		$scope.movies.push(res.data);
-
-    	}, gotError);
+        console.log("TEST");
+    	$http.get("http://localhost:8080/rs-jersey-spring/api/movie/name/"+$scope.inVal).then(gotMovies, gotError);
     };
 
   };
