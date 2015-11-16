@@ -5,6 +5,7 @@ server.use('/scripts',express.static(__dirname+'/scripts'));
 server.use('/template',express.static(__dirname+'/template'));
 server.use('/css',express.static(__dirname+'/css'));
 server.use('/ca-ng/static',express.static(__dirname+'/ca-ng/static'));
+server.use('/ng-learn',express.static(__dirname+'/ng-learn'));
 //server.use(express.static(__dirname+'/'));
 
 

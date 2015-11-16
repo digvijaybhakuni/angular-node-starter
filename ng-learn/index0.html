@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="githubViewer">
+
+  <head>
+    <!--<script data-require="angular.js@*" data-semver="1.3.0-beta.5" src="https://code.angularjs.org/1.3.0-beta.5/angular.js"></script>-->
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+
+  <body ng-controller="MyController">
+
+
+
+    <div>
+      Enter The movie name : <input type="text" ng-model="inVal"/> <input type="button" value="find" ng-click="findId" />
+      <br/>
+      <span>{{inVal}}</span>
+    </div>
+
+
+    <select ng-model="repoSortOrder">
+        <option value="+name">Name</option>
+        <option value="-rating">Stars</option>
+        <option value="+year">Language</option>
+    </select>
+
+	<table ng-hide="!movies">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Stars</th>
+            <th>Year</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr ng-repeat="movie in movies | orderBy:repoSortOrder">
+            <td>{{movie.name}}</td>
+            <td>{{movie.rating | number}}</td>
+            <td>{{movie.year}}</td>
+        </tr>
+
+		<!--
+		<tr ng-repeat="repo in repos | orderBy:'name'">
+            <td>{{repo.name}}</td>
+            <td>{{repo.stargazers_count | number}}</td>
+            <td>{{repo.language}}</td>
+        </tr>
+		-->
+
+
+    </tbody>
+</table>
+
+
+  </body>
+
+</html>
