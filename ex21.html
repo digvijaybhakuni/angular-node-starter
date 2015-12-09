@@ -34,7 +34,7 @@ The fact is the MVC pattern plays a predominant role in the browser. All popular
     <script src="bower_components/angular/angular.js"></script>
     <script>
         var app = angular.module('myApp', []);
-        app.controller("MyCtrl", function($scope) {
+        app.controller("MyCtrl", function($scope, dglog) {
             // a simple JavaScript object
             $scope.user = {
                 name: 'Jon Doe',
@@ -48,6 +48,8 @@ The fact is the MVC pattern plays a predominant role in the browser. All popular
             ];
 
             $scope.loggedIn = true;
+
+            dglog.info("diggu");
 
         });
 
@@ -92,6 +94,23 @@ The fact is the MVC pattern plays a predominant role in the browser. All popular
                 }
                 return outputArray;
             };
+        });
+
+        app.factory('dglog', function(){
+           var date = new Date();
+            var log = function(level,msg){
+
+                console.log("["+date.toLocaleString()+" : "+level+"] "+msg);
+            }
+
+            return {
+
+                info : function(msg){ log('INFO', msg); },
+                error : function(msg){ log('INFO', msg); },
+                debug : function(msg){ log('INFO', msg); }
+
+            };
+
         });
     </script>
 </body>
