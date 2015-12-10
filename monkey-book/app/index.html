@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="mbApp">
+<head>
+    <meta charset="utf-8">
+    <title>BookMonkey</title>
+</head>
+<body ng-init="name='Monkey'">
+    <h1>Hello {{name}}</h1>
+    <br>
+    <input type="text" ng-model="name"/>
+
+    <div ng-view></div>
+
+    <!--script-->
+    <script src="public/libs/angular/angular.js"></script>
+    <script src="public/libs/angular-route/angular-route.js"></script>
+    <script src="public/scripts/app.js"></script>
+    <script src="public/scripts/controllers/book_details.js"></script>
+    <!--script-->
+</body>
+</html>
