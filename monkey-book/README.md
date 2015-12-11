@@ -19,6 +19,6 @@ Using the filter filter you can filter an array based on certain criteria. For e
 In addition to supporting full text search, you can control thoroughly how a data collection will be filtered.
 With an optional comparator you can define filtering logic for the compare operation.
 Used in a template:
-    ng_repeat_expression | filter:predicate[:comparator]
+    `ng_repeat_expression | filter:predicate[:comparator]`
 Invoked programmatically with the $filter service:
-      $filter('filter')(array, predicate[, comparator]);
+    `$filter('filter')(array, predicate[, comparator]);`
