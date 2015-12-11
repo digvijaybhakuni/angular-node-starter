@@ -2,7 +2,9 @@
 <table class="bm-book-list">
     <tbody>
         <tr ng-repeat="book in books | orderBy: getBookOrder | filter: searchText">
-            <td ng-bind="book.title"></td>
+            <td>
+                <a ng-href="#/books/{{book.isbn}}" ng-bind="book.title"></a>
+            </td>
             <td ng-bind="book.author"></td>
             <td ng-bind="book.isbn"></td>
         </tr>

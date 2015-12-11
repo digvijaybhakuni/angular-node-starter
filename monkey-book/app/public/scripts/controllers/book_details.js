@@ -1,4 +1,5 @@
-mbApp.controller('BookDetailsCtrl', function($scope)
+"use strict";
+mbApp.controller('BookDetailsCtrl', function($scope,$location)
 {
   $scope.book = {
     title : 'JavaScript for Enterprise Developers',
@@ -15,4 +16,8 @@ mbApp.controller('BookDetailsCtrl', function($scope)
         url : 'http://dpunkt.de/'
     }
   };
+
+    $scope.goToListView = function(){
+        $location.path('/books');
+    };
 });
