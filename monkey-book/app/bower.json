@@ -1,9 +1,10 @@
 {
-    "name": "monkey-book",
-    "auther" : "digvijay bhakuni",
-    "dependencies": {
-        "angular": "~1.4.8",
-        "angular-route": "~1.4.7",
-        "jquery": "~1.11.3"
-    }
+  "name": "monkey-book",
+  "auther": "digvijay bhakuni",
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-mocks": "~1.4.8",
+    "angular-route": "~1.4.7",
+    "jquery": "~1.11.3"
+  }
 }

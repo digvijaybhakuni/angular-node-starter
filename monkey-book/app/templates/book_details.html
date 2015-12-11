@@ -1,16 +1,19 @@
-<h2 ng-bind="book.title"></h2>
-<h3 ng-bind="book.subtitle"></h3>
+<h2 ng-bind="book.title" class="mb-book-title"></h2>
+<h3 ng-bind="book.subtitle" class="mb-book-subtitle"></h3>
 <p>
   <ul>
-    <li ng-bind-template="ISBN: {{ book.isbn }}"></li>
-    <li ng-bind-template="Number of Pages: {{ book.numPages }}"></li>
-    <li ng-bind-template="Author: {{ book.author }}"></li>
+    <li ng-bind-template="ISBN: {{ book.isbn }}" class="mb-book-isbn"></li>
+    <li ng-bind-template="Number of Pages: {{ book.numPages }}" class="mb-book-num-pages"></li>
+    <li ng-bind-template="Author: {{ book.author }}" class="mb-book-author"></li>
     <li>
       Publisher:
-      <a ng-bind="book.publisher.name" ng-href="{{ book.publisher.url }}" target="_blank"></a>
+      <a ng-bind="book.publisher.name" class="mb-book-pub-name" ng-href="{{ book.publisher.url }}" target="_blank"></a>
     </li>
   </ul>
 </p>
 <hr>
 <p ng-bind="book.abstract">
 </p>
+<!--
+Whenever possible, you should choose the ngBind or ngBindTemplate directive over expressions for performance reasons.
+-->

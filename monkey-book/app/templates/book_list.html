@@ -1,0 +1,21 @@
+<input type="text" placeholder="Search..." ng-model="searchText">
+<table class="bm-book-list">
+    <tbody>
+        <tr ng-repeat="book in books | orderBy: getBookOrder | filter: searchText">
+            <td ng-bind="book.title"></td>
+            <td ng-bind="book.author"></td>
+            <td ng-bind="book.isbn"></td>
+        </tr>
+    </tbody>
+</table>
+<!--
+- Using the filter filter you can filter an array based on certain criteria. For example, you can implement a client-side search feature.
+- In addition to supporting full text search, you can control thoroughly how a data collection will be filtered.
+- With an optional comparator you can define filtering logic for the compare operation.
+
+Used in a template:
+      ng_repeat_expression | filter:predicate[:comparator]
+
+Invoked programmatically with the $filter service:
+      $filter('filter')(array, predicate[, comparator]);
+-->
