@@ -1,0 +1,11 @@
+<h2>Administrative area</h2>
+<h3>
+    Should the book
+    &quot;{{ book.title }}&quot;
+    really want to delete?
+</h3>
+<button class="bm-delete-btn"
+        ng-click="deleteBook(book.isbn)">Delete</button>
+
+<button class="bm-cancel-btn"
+        ng-click="cancel()">Abort</button>

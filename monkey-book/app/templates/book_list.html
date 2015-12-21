@@ -1,15 +1,32 @@
+
+<h2 ng-show="isAdmin">Administration Area</h2>
 <input type="text" placeholder="Search..." ng-model="searchText">
 <table class="bm-book-list">
+    <thead>
+        <tr>
+            <th>Name</th><th>Author</th><th>ISBN</th><th ng-show="isAdmin">Action</th>
+        </tr>
+    </thead>
     <tbody>
         <tr ng-repeat="book in books | orderBy: getBookOrder | filter: searchText">
             <td>
-                <a ng-href="#/books/{{book.isbn}}" ng-bind="book.title"></a>
+                <a ng-hide="isAdmin" ng-href="#/books/{{book.isbn}}" ng-bind="book.title"></a>
+                <a ng-show="isAdmin" ng-href="#/admin/books/{{book.isbn}}/edit" ng-bind="book.title"></a>
             </td>
             <td ng-bind="book.author"></td>
             <td ng-bind="book.isbn"></td>
+            <td ng-show="isAdmin">
+                <i class="fa fa-minus-circle"></i>
+                <a ng-href="#/admin/books/{{book.isbn}}/delete">Delete</a>
+            </td>
         </tr>
     </tbody>
 </table>
+<p ng-show="isAdmin">
+    <a class="bm-new-book-link" ng-href="#/admin/books/new">
+        Create new book
+    </a>
+</p>
 <!--
 - Using the filter filter you can filter an array based on certain criteria. For example, you can implement a client-side search feature.
 - In addition to supporting full text search, you can control thoroughly how a data collection will be filtered.

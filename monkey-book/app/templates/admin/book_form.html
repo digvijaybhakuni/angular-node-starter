@@ -1,0 +1,81 @@
+<h2>Administration Area</h2>
+<div>
+    <h3 ng-hide="isEditMode">Create new book</h3>
+    <h3 ng-show="isEditMode">Edit book</h3>
+
+    <form name="bookForm" novalidate>
+
+        <input type="text" placeholder="Title..."
+               ng-model="book.title" name="title" required>
+        <span ng-show="bookForm.title.$dirty && bookForm.title.$invalid">
+            Please enter a book title.
+        </span>
+        <br>
+
+        <input type="text" placeholder="Sub-Title..."
+               ng-model="book.subtitle" name="subtitle"><br>
+
+        <input type="text" placeholder="ISBN..."
+               ng-model="book.isbn" name="isbn" minlength="5" maxlength="17"
+               ng-disabled="isEditMode" required>
+        <span ng-show="bookForm.isbn.$dirty && bookForm.isbn.$invalid">
+             Please enter an ISBN.
+        </span>
+        <br>
+
+        <textarea placeholder="Short description..."
+                  ng-model="book.abstract" name="abstract"></textarea><br>
+
+        <input type="number" min="1" placeholder="No Of Pages..."
+               ng-model="book.numPages" name="numPages" required>
+        <span ng-show="bookForm.numPages.$dirty && bookForm.numPages.$invalid">
+            <span ng-show="bookForm.numPages.$error.min">
+                The book you have to. contain a page.
+            </span>
+            <span ng-hide="bookForm.numPages.$error.min">
+               Please enter a valid page number.
+            </span>
+        </span>
+        <br>
+
+        <input type="text" placeholder="Author..."
+               ng-model="book.author" name="author" required>
+        <span ng-show="bookForm.author.$dirty && bookForm.author.$invalid">
+            Please enter an author.
+        </span>
+        <br>
+
+        <input type="text" placeholder="Publisher..."
+               ng-model="book.publisher.name" name="publisherName" required>
+        <span ng-show="bookForm.publisherName.$dirty && bookForm.publisherName.$invalid">
+            Please enter a publisher.
+        </span>
+        <br>
+
+        <input type="url" placeholder="Webseite of publisher..."
+               ng-model="book.publisher.url" name="publisherUrl" required>
+        <span ng-show="bookForm.publisherUrl.$dirty && bookForm.publisherUrl.$invalid">
+            <span ng-show="bookForm.publisherUrl.$error.url">
+                Please enter a valid URL.
+            </span>
+            <span ng-hide="bookForm.publisherUrl.$error.url">
+                Please enter the website of the publisher.
+            </span>
+        </span>
+        <br>
+
+
+        <button class="bm-cancel-btn"
+                ng-click="cancelAction()">Cancel</button>
+        <button class="bm-submit-btn"
+                ng-click="submitAction()"
+                ng-disabled="bookForm.$invalid">{{ submitBtnLabel }}
+        </button>
+    </form>
+</div>
+<div class="split-screen">
+    <h3>Preview</h3>
+    <div class="simple-border padded"
+         ng-include="'templates/book_details.html'">
+    </div>
+</div>

@@ -49,7 +49,6 @@ mbApp.factory('bookDataService', function() {
                 return srv._books[i];
             }
         }
-
         return null;
     };
 
@@ -58,6 +57,32 @@ mbApp.factory('bookDataService', function() {
         return angular.copy(srv._books);
     };
 
+    srv.storeBook = function(e){
+        console.log("Into Book Store", e);
+        srv._books.push(e);
+        console.log("New Book List", srv._books);
+    }
+
+    srv.updateBook = function(e){
+        for(var i = 0, n = srv._books.length; i < n; i++){
+            if(e.isbn === srv._books[i].isbn){
+                angular.extend(srv._books[i],e);//replace the value of book at i postion in srv._books
+                return;
+            }
+        }
+    }
+
+    srv.deleteBookByIsbn = function(e){
+        var i = srv._books.length;
+        while(i--){
+            console.info("Book : "+srv._books[i].isbn+" : "+e);
+            if(e === srv._books[i].isbn){
+                srv._books.splice(i, 1);
+                return;
+            }
+        }
+    }
+
     // Public API
     return {
         getBookByIsbn: function(isbn) {
@@ -65,6 +90,15 @@ mbApp.factory('bookDataService', function() {
         },
         getBooks: function() {
             return srv.getBooks();
+        },
+        storeBook :  function(e){
+            return srv.storeBook(e);
+        },
+        updateBook : function(e){
+            return srv.updateBook(e);
+        },
+        deleteBookByIsbn : function(isbn){
+            return srv.deleteBookByIsbn(isbn);
         }
     };
 });

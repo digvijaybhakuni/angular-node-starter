@@ -2,6 +2,8 @@
 <html ng-app="mbApp">
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="public/style/main.css"/>
     <title>BookMonkey</title>
 </head>
 <body ng-init="name='Monkey'">
@@ -9,6 +11,12 @@
     <br>
     <input type="text" ng-model="name"/>
 
+    <div>
+        <ul style="">
+            <li> <a ng-href="#/books">Home</a> </li>
+            <li><a ng-href="#/admin/books">Admin</a> </li>
+        </ul>
+    </div>
     <div ng-view></div>
 
     <!--script-->
@@ -17,6 +25,10 @@
     <script src="public/scripts/app.js"></script>
     <script src="public/scripts/controllers/book_details.js"></script>
     <script src="public/scripts/controllers/book_list.js"></script>
+    <script src="public/scripts/controllers/admin_book_list.js"></script>
+    <script src="public/scripts/controllers/admin_new_book.js"></script>
+    <script src="public/scripts/controllers/admin_edit_book.js"></script>
+    <script src="public/scripts/controllers/admin_delete_book.js"></script>
     <script src="public/scripts/services/book_data.js"></script>
     <!--script-->
 </body>
